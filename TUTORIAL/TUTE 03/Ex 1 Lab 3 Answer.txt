@@ -1,0 +1,92 @@
+// Lab3Ex1Example.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//1) In the Circle structure include member variable radius ( float ) , in the Rectangle structure include member variables length(float) and width(float) and in the Square structure include member variable length(float).
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+//Create Structures
+
+struct Circle {
+
+	float radius;
+};
+
+struct Rectangle {
+
+	float length;
+	float width;
+};
+
+struct Square {
+
+	float length;
+};
+
+//declare the three functions
+
+float areaofCircle(Circle c);
+float areaofRectangle(Rectangle r);
+float areaofSquare(Square s);
+
+
+int main()
+{
+	//declare the struct variables
+	struct Circle c1; 
+	struct Rectangle r1; //r1 for small rectangle
+	struct Rectangle r2; //r2 for yard 
+	struct Square s1;
+
+	//Input details
+
+	//Circle
+	cout <<"Enter Radius : " ;
+	cin >> c1.radius;
+	
+	//Rectangle
+	cout << "Enter Length for Rectangle : ";
+	cin >> r1.length;
+
+	cout << "Enter width for Rectangle : ";
+	cin >> r1.width;
+
+	//Yard
+	cout << "Enter Length for Yard : ";
+	cin >> r2.length;
+
+	cout << "Enter width for Yard : ";
+	cin >> r2.width;
+
+	//Square
+	cout << "Enter width for Square : ";
+	cin >> s1.length;
+
+	//Calling Functions
+
+	float Area_Circle, Area_Yard, Area_Rectangle, Area_Squared;
+
+	Area_Circle = areaofCircle(c1);
+	Area_Yard = areaofRectangle(r2);
+	Area_Rectangle = areaofRectangle(r1);
+	Area_Squared = areaofSquare(s1);
+
+	float GreenColorArea = Area_Yard - (Area_Circle + Area_Rectangle + Area_Squared);
+
+	cout << "Area of the green colour area : " << setiosflags(ios::fixed) << setprecision (3) << GreenColorArea << endl;
+}
+
+//Implementation
+float areaofCircle(Circle c) 
+{
+	return (22.0/7) * c.radius * c.radius;
+}
+float areaofRectangle(Rectangle r)
+{
+	return r.length * r.width;
+}
+float areaofSquare(Square s)
+{
+	return s.length * s.length;
+}
+
